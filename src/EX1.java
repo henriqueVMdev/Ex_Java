@@ -21,19 +21,51 @@ public class EX1 {
 
         System.out.println("Insira a quantia de seu primeiro deposito: ");
         primeiroDeposito = sc.nextDouble();
+        sc.nextLine();
 
         System.out.println("Deposito: " + primeiroDeposito + " confirma este valor? tecle Sim para confirmar e Nao para tentar denovo");
         String escolha = sc.nextLine();
 
             while (! escolha.equals( "Sim")){
+                System.out.println("Insira a quantia de seu primeiro deposito: ");
+                primeiroDeposito = sc.nextDouble();
+                sc.nextLine();
                 System.out.println("Deposito: " + primeiroDeposito + " confirma este valor? tecle Sim para confirmar e Nao para tentar denovo");
                 escolha = sc.nextLine();
             }
 
-
         Conta conta = new Conta( name, primeiroDeposito);
 
+        System.out.println("conta criada com sucesso!! bem vindo ao nosso banco "+ name);
 
+        System.out.println(conta);
+        System.out.print("Precione [1] para sacar \nPrecione [2] para depositar \nPrecione [3] para consultar cheque especial \nPrecione [4] para pagar boleto \n");
+        int escolhaAcao = sc.nextInt();
 
+        if (escolhaAcao == 1){
+                System.out.println("Insira a quantidade que deseja sacar");
+                double saque = sc.nextDouble();
+                conta.sacar(saque);
+        }
+        else if ( escolhaAcao == 2){
+            System.out.println("Insira a quantidade que deseja depositar");
+            double deposito = sc.nextDouble();
+            conta.depositar(deposito);
+        }
+
+        else if ( escolhaAcao == 3){
+            if (conta.usandoCheque()){
+                System.out.println("Saldo negativo, conta usando cheue especial");
+            }
+            else{
+                System.out.println("Nao esta usando cheque especial, saldo positivo tudo ok,");
+            }
+        }
+
+        else if ( escolhaAcao == 4){
+            System.out.println("Insira o valor do boleto");
+            double valorBoleto = sc.nextDouble();
+            conta.pagarBoleto(valorBoleto);
+        }
     }
 }

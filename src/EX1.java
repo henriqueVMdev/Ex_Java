@@ -64,7 +64,7 @@ public class EX1 {
                 double valorBoleto = sc.nextDouble();
                 conta.pagarBoleto(valorBoleto);
             }
-            System.out.print("Precione [1] para sacar \nPrecione [2] para depositar \nPrecione [3] para consultar cheque especial " +
+            IO.print("Precione [1] para sacar \nPrecione [2] para depositar \nPrecione [3] para consultar cheque especial " +
                     "\nPrecione [4] para pagar boleto \nPrecione[9] para sair ");
             escolhaAcao = sc.nextInt();
         }
